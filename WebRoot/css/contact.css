@@ -1,0 +1,58 @@
+  
+  #content{
+   background-color:#eee;
+  position:absolute;
+  top:20%;
+  left:30%;
+  height:400px;
+  width:400px;
+  }
+  
+  #address1{
+    position:relative;
+     top:20px;
+     left:30px;
+  }
+  
+  #address2{
+  position:relative;
+  top:0px;
+  left:100px;
+  }
+  
+  #name1{
+  position:relative;
+  top:20px;
+  left:30px;
+  }
+  
+  #name2{
+  position:relative;
+  top:0px;
+  left:100px;
+  }
+  
+  #telephone1{
+  position:relative;
+  top:20px;
+  left:30px;
+  }
+  
+  
+  #telephone2{
+  position:relative;
+  top:0px;
+  left:100px;
+  }
+  
+  #add{
+   text-align:center;
+   height:30px;
+   width:50px;
+  border-radius:20px;
+  border:1px solid blue;
+  position:relative;
+  top:20px;
+  left:100px;
+  cursor:pointer;
+  }

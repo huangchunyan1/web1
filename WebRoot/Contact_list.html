@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact_list.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+   <link rel="stylesheet" type="text/css" href="css/contact_list.css"/>
+ <script src="js/jquery-1.8.3.min.js"></script>
+ <script src="js/contact_list.js"></script>
+ 
+ <script>
+   $(function(){
+      
+      $.ajax({
+        type:'post',
+        url:"findByIdContact",
+        success:function(data){
+          if(data.indexOf("logout")>0)
+          {
+           window.location.href="login.html";
+          }else{
+          fillContent(data);
+          }
+          
+          $("input[type='radio']").click(function(){
+       var id = $(this).data("type");
+       $.ajax({
+         type:'post',
+         url:"updateStatus_Contact",
+         data:{id:id},
+         success:function(data){
+           if(data.indexOf("logout") > 0)
+           {
+             window.location.href="login.html";
+           }else{
+            var data = eval("("+data+")");
+           if(data.message=="success"){
+            alert("修改成功!");
+           }
+           }
+         }
+       })
+     })
+     
+     //删除
+       $(".delete").click(function(){
+         var id = $(this).data("type");
+         
+         $.ajax({
+            type:'post',
+            url:'deleteById_Contact',
+            data:{
+            id:id
+            },
+            success:function(data){
+               var data = eval("("+data+")");
+               if(data.message == "success"){
+                 //显示收货地址
+                  $.ajax({
+                  type:'post',
+                  url:'findByIdContact',
+                  success:function(data){
+                     
+                     if(data.indexOf("logout")>0){
+                       window.location.href="login.html";
+                     }else{
+                    
+                       fillContent(data);
+                     }
+                     
+                  }
+                  })
+               }
+            }
+         })
+       })
+       
+       //修改
+       $(".update").click(function(){
+           var id = $(this).data("type");
+           window.location.href="contact_update.html?id="+id;
+           
+       })
+        }
+      })
+     
+   })
+   
+   
+   function fillContent(data){
+      var data = eval("("+data+")");
+          var content = $("#content");
+         
+          content.empty();
+          var ul = $("<ul></ul>");
+         
+          for(var i = 0 ; i <data.length ; i ++){
+          var obj = data[i];
+            var li = $("<li></li>");
+            var div1 = $("<div class='moren'><input type='radio' name='queren' data-type='"+obj.c_id+"'/>设为默认</div>");
+            var div2 = $("<div>地址:"+obj.c_address+"</div>");
+            var div3 = $("<div>联系人:"+obj.c_name+"</div>");
+            var div4 = $("<div>电话:"+obj.c_telephone+"</div>");
+            var div5 = $("<div class='update' data-type='"+obj.c_id+"'>修改</div>");
+            var div6 = $("<div class='delete' data-type='"+obj.c_id+"'>删除</div>");
+            
+            var div7 = $("<div class='li1'></div>");
+            div7.append(div1).append(div2).append(div3).append(div4)
+            .append(div5).append(div6);
+            li.append(div7);
+            ul.append(li);
+            
+          }
+          content.append(ul);
+          addStyle();
+   }
+ </script>
+  </head>
+  
+  <body>
+  <div id="add">
+             <a href="addContact.html">添加</a>
+    </div>
+    <div id="content">
+    <!-- 
+     <ul>
+      
+     <li>
+     <div class="li1">
+     <div class='moren'><input type="radio" name="moren" data-type="1"/>设为默认</div>
+       <div>地址:湖北省仙桃市陈场镇</div>
+       <div>联系人:唐金兰</div>
+       <div>电话:13593998387</div>
+       <div class="update">修改</div>
+       <div class="delete">删除</div>
+       </div>
+     </li>
+     <li>
+     <div class="li1">
+     <div class="moren"><input type="radio" name="moren"/>设为默认</div>
+       <div>地址:广东省深圳市大冲商务中心1308</div>
+       <div>联系人:黄春燕</div>
+       <div>电话:134307694332</div>
+       <div class="update">修改</div>
+       <div class="delete">删除</div>
+       </div>
+     </li>
+      
+     
+     </ul>
+    -->
+    </div>
+      
+    
+  </body>
+</html>

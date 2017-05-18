@@ -1,0 +1,33 @@
+
+ #content ul li{
+  float:left;
+  width:100px;
+  height:100px;
+  list-style:none;
+ }
+ 
+ 
+ #content ul li img{
+  width:100px;
+  height:100px;
+ }
+ 
+ #description{
+  position:relative;
+  top:120px;
+  left:-600px;
+ }
+ 
+ 
+ #price{
+ position:relative;
+ top:140px;
+ left:-600px;
+ }
+ 
+ #buy{
+ position:relative;
+ top:160px;
+ left:-600px;
+   cursor:pointer;
+ }

@@ -1,0 +1,82 @@
+
+#content{
+	width:400px;
+	height:400px;
+	background-color:#eee;
+	position:absolute;
+	top:10%;
+	left:30%;
+
+     }
+     
+     #username1{
+     position:relative;
+     top:20px;
+     left:30px;
+     }
+     
+     #username2{
+     position:relative;
+     left:100px;
+     }
+     
+     #password1{
+     position:relative;
+     top:10px;
+     left:30px;
+     }
+     
+     #password2{
+     position:relative;
+     top:-10px;
+     left:100px;
+     }
+     
+     #rePassword1{
+       position:relative;
+       left:30px;
+       }
+       
+       #rePassword2{
+        position:relative;
+        top:-20px;
+        left:100px;
+       }
+       
+       #tel1{
+         position:relative;
+         top:-10px;
+         left:30px;
+         
+       }
+       
+       
+       #tel2{
+       position:relative;
+       top:-30px;
+       left:100px;
+       }
+       
+       #email1{
+       position:relative;
+       top:-20px;
+       left:30px;
+       }
+       
+       #email2{
+       position:relative;
+       top:-40px;
+       left:100px;
+       }
+       
+       #register{
+       padding-top:5px;
+       cursor:pointer;
+       text-align:center;
+        width:60px;
+        height:30px;
+       border-radius:20px;
+       border:1px solid blue;
+         position:relative;
+         left:150px;
+       }

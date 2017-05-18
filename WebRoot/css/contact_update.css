@@ -1,0 +1,55 @@
+
+ #content{
+   
+   position:absolute;
+   width:400px;
+   height:400px;
+   left:40%;
+   top:10%;
+   background-color:#eee;
+ }
+  
+ #address1{
+   position:relative;
+   top:40px;
+   left:30px;
+ }
+ 
+ #address2{
+   position:relative;
+   top:10px;
+   left:100px;
+ }
+ 
+ #name1{
+   position:relative;
+   top:50px;
+   left:30px;
+ }
+ 
+ #name2{
+   position:relative;
+   top:30px;
+   left:100px;
+ }
+ 
+ #telephone1{
+  position:relative;
+  top:60px;
+  left:30px;
+ }
+ 
+ #telephone2{
+    position:relative;
+    top:30px;
+    left:100px;
+ }
+ 
+   #update{
+   cursor:pointer;
+   position:relative;
+   top:100px;
+   left:150px;
+   }
+ 
+ 

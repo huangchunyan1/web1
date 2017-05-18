@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="ch1" extends="json-default" namespace="/">
+
+  <interceptors>
+    <interceptor name="loginInterceptor"
+     class="com.tairun.interceptor.LoginInterceptor">
+    </interceptor>
+    
+    <interceptor-stack name="mydefault">
+       <interceptor-ref name="defaultStack"/>
+       <interceptor-ref name="loginInterceptor"/>
+    </interceptor-stack>
+    
+  </interceptors>
+  
+  <default-interceptor-ref name="mydefault"/>
+  
+  <global-results>
+     <result name="relogin">loginout.html</result>
+  </global-results>
+  
+ <action name="login" class="com.tairun.action.UserAction"
+   method="login"></action>
+   
+   <action name="findAllProduct" class="com.tairun.action.ProductAction"
+    method="findAll">
+    
+    </action>
+    
+    <action name="findByIdProduct" class="com.tairun.action.ProductAction"
+      method="findById"/>
+      
+      
+      <action name="register" class="com.tairun.action.UserAction"
+        method="register">
+        
+      </action>
+      
+      <action name="getUser" class="com.tairun.action.UserAction"
+       method="getUser"></action>
+       
+       <action name="logout" class="com.tairun.action.UserAction"
+        method="logout"></action>
+        
+        <action name="addOrder" class="com.tairun.action.OrderAction"
+        method="add">
+        
+        </action> 
+        
+        <action name="addContact"  class="com.tairun.action.ContactAction"
+        method="add"></action>
+        <action name="findByIdContact" class="com.tairun.action.ContactAction"
+        method="findAll">
+        </action>
+        
+        <action name="updateStatus_Contact" class="com.tairun.action.ContactAction"
+          method="updateStatus">
+        </action>
+        
+        <action name="deleteById_Contact" class="com.tairun.action.ContactAction"
+          method="deleteById">
+          
+        </action>
+        
+        <action name="updateById_Contact" class="com.tairun.action.ContactAction"
+        method="updateById">
+        </action>
+        
+        <action name="findById_Contact" class="com.tairun.action.ContactAction"
+         method="findById">
+         </action>
+</package>
+</struts>    

@@ -1,0 +1,29 @@
+
+
+#title{
+	height:60px;
+	width:100%;
+	background-color:#eee;
+}
+
+#login{
+	position:relative;
+	top:20px;
+	left:90%;
+}
+
+#product{
+	 width:100%;
+}
+#product ul li{
+	float:left;
+	list-style:none;
+	width:200px;
+}
+
+ #product ul li div img{
+  width:150px;
+  height:150px;
+ }
+
+ 

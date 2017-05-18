@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>details.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="css/details.css">
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/details.js"></script>
+  <script>
+  
+     
+     $(function(){
+     
+      var id = getId();
+       $.ajax({
+         type:'post',
+         url:"findByIdProduct",
+         data:{id:id},
+         success:function(data){
+         
+          $("#content").empty();
+           var data = eval("("+data+")");
+           
+           var ul = $("<ul></ul>");
+           
+           var array = data.productDetails;
+           for(var i = 0 ; i < array.length ;i++){
+           
+           var detail = array[i];
+            var li = $("<li></li>");
+            var src = detail.pd_picUrl;
+            
+            var img = $("<img src='"+src+"'/>");
+            li.append(img);
+            ul.append(li);
+            
+           }
+           $("#content").append(ul);
+           //添加样式
+           addStyle();
+           $("#description").html("描述:"+data.p_description);
+           $("#price").html("价格:￥"+data.p_price);
+           
+         }
+       })
+     })
+     
+     
+     function getId(){
+       var location = window.location.href.split("=");
+       var id = location[1];
+       return id;
+     }
+     
+    
+  </script>
+  </head>
+  
+  <body>
+  
+   <div id="content">
+    
+  </div>
+  <div id="description">
+  </div>
+  <div id="price">
+  
+  </div>
+  <a id="buy"  href='order.html' >购买</a>
+  </body>
+  
+</html>
